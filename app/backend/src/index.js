@@ -10,6 +10,7 @@ const routes = require('./routes');
 // inicializando o app
 const app = express();
 
+// cors
 app.use(cors());
 
 // permitindo que arquivos json sejam compreendidos
