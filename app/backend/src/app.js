@@ -4,6 +4,9 @@ const express = require('express');
 // importando o módulo de segurança cors
 const cors = require('cors');
 
+// importando errors do celebrate
+const { errors } = require('celebrate');
+
 // importando o arquivo com as rotas
 const routes = require('./routes');
 
@@ -19,5 +22,9 @@ app.use(express.json());
 // chamando o arquivo de rotas
 app.use(routes);
 
-// cadastrando a porta que será usada pelo app
-app.listen(3333);
+// chamando errors do celebrate
+app.use(errors());
+
+// exportando o app
+// será usado em server.js
+module.exports = app;

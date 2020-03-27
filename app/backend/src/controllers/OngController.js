@@ -1,5 +1,4 @@
-// importando crypto para gerar um id string aleatório da ong
-const crypto = require('crypto');
+const generateUniqueId = require('../utils/generateUniqueId');
 
 // importando a conexão ao banco
 const connection = require('../database/connection');
@@ -17,7 +16,7 @@ module.exports = {
     const { name, email, whatsapp, city, uf } = request.body;
 
     // gerando id aleatório para a ong
-    const id = crypto.randomBytes(4).toString('HEX');
+    const id = generateUniqueId();
 
     await connection('ongs').insert({
       id,
